@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #f5f3ff;
+  --color-brand-100: #ede9fe;
+  --color-brand-200: #ddd6fe;
+  --color-brand-300: #c4b5fd;
+  --color-brand-400: #a78bfa;
+  --color-brand-500: #8b5cf6;
+  --color-brand-600: #6d28d9;
+  --color-brand-700: #5b21b6;
+  --color-brand-800: #4c1d95;
+  --color-brand-900: #2e1065;
+  
+  --color-erp-bg: #f8fafc;
+  --color-erp-surface: #ffffff;
+  --color-erp-text: #0f172a;
+  --color-erp-muted: #64748b;
+  --color-erp-border: #e2e8f0;
+}
+
+:root {
+  --erp-primary: #6D28D9;
+  --erp-hover: #5B21B6;
+  --erp-deep: #4C1D95;
+  --erp-violet: #8B5CF6;
+  --erp-soft-violet: #A78BFA;
+  --erp-lavender: #F5F3FF;
+  --erp-bg: #F8FAFC;
+  --erp-surface: #FFFFFF;
+  --erp-text: #0F172A;
+  --erp-muted: #64748B;
+  --erp-border: #E2E8F0;
+  --erp-success: #16A34A;
+  --erp-warning: #D97706;
+  --erp-error: #DC2626;
+}
+
+body {
+  background-color: var(--erp-bg);
+  color: var(--erp-text);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar for ERP tables and panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
