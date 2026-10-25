@@ -173,7 +173,7 @@ export default function WorkforceAttendancePage() {
               <label className="font-semibold text-slate-700 block mb-1">Trade Category</label>
               <select
                 value={formData.trade}
-                onChange={e => setFormData({ ...formData, trade: e.target.value as any })}
+                onChange={e => setFormData({ ...formData, trade: e.target.value as WorkforceAttendance['trade'] })}
                 className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs"
               >
                 <option value="Rod Binders">Rod Binders</option>

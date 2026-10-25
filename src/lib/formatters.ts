@@ -50,13 +50,25 @@ export function formatNumberBD(num: number): string {
   return (num < 0 ? '-' : '') + `${formattedOther},${lastThree}`;
 }
 
+const BD_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 export function formatDateBD(dateStr: string): string {
   if (!dateStr) return '';
+  // Deterministic ISO match (YYYY-MM-DD) to prevent timezone shifts across SSR & client
+  const isoMatch = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (isoMatch) {
+    const year = isoMatch[1];
+    const monthIdx = parseInt(isoMatch[2], 10) - 1;
+    const day = isoMatch[3];
+    if (monthIdx >= 0 && monthIdx < 12) {
+      return `${day} ${BD_MONTHS[monthIdx]} ${year}`;
+    }
+  }
+
   const d = new Date(dateStr);
   if (isNaN(d.getTime())) return dateStr;
-  return d.toLocaleDateString('en-GB', {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric'
-  });
+  const day = String(d.getUTCDate()).padStart(2, '0');
+  const month = BD_MONTHS[d.getUTCMonth()];
+  const year = d.getUTCFullYear();
+  return `${day} ${month} ${year}`;
 }
