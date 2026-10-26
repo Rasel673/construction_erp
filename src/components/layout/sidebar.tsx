@@ -138,16 +138,21 @@ export function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile
         {/* Brand Header */}
         <div className="h-16 px-4 border-b border-slate-100 flex items-center justify-between">
           <Link href="/demo" className="flex items-center gap-3 overflow-hidden">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#6D28D9] to-[#8B5CF6] flex items-center justify-center text-white font-bold shadow-md shadow-purple-500/20 shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#6D28D9] to-[#8B5CF6] flex items-center justify-center text-white font-bold shadow-md shadow-purple-500/25 shrink-0">
               <Building2 className="w-5 h-5 text-white" />
             </div>
             {!collapsed && (
               <div className="flex flex-col">
-                <span className="text-base font-bold tracking-tight text-slate-900 flex items-center gap-1.5">
-                  Nirman<span className="text-[#6D28D9]">ERP</span>
-                  <span className="text-[10px] uppercase font-semibold px-1.5 py-0.2 bg-[#F5F3FF] text-[#6D28D9] rounded border border-[#DDD6FE]">BD</span>
-                </span>
-                <span className="text-[11px] text-slate-500 font-medium">Construction Suite</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-base font-bold tracking-tight text-slate-900">
+                    Nirman<span className="text-[#6D28D9]">ERP</span>
+                  </span>
+                  <span className="text-[10px] uppercase font-bold px-1.5 py-0.2 bg-[#F5F3FF] text-[#6D28D9] rounded border border-[#DDD6FE]">BD</span>
+                </div>
+                <div className="flex items-center gap-1 text-[11px] text-slate-500 font-medium">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>Cloud Active</span>
+                </div>
               </div>
             )}
           </Link>
@@ -171,7 +176,7 @@ export function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile
                 {!collapsed && (
                   <button
                     onClick={() => toggleSection(group.name)}
-                    className="w-full flex items-center justify-between px-2 py-1 text-[11px] font-semibold text-slate-600 uppercase tracking-wider hover:text-slate-900 transition-colors"
+                    className="w-full flex items-center justify-between px-2 py-1 text-[11px] font-semibold text-slate-500 uppercase tracking-wider hover:text-slate-800 transition-colors"
                   >
                     <span>{group.name}</span>
                     {isOpen ? <ChevronDown className="w-3 h-3 text-slate-400" /> : <ChevronRight className="w-3 h-3 text-slate-400" />}
@@ -190,15 +195,15 @@ export function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile
                           onClick={() => onCloseMobile()}
                           title={collapsed ? item.name : undefined}
                           className={cn(
-                            'group flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150',
+                            'group flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium transition-all duration-150',
                             active
-                              ? 'bg-[#6D28D9] text-white shadow-xs font-semibold'
+                              ? 'bg-gradient-to-r from-[#6D28D9] to-[#7C3AED] text-white shadow-sm shadow-purple-600/25 font-semibold ring-1 ring-purple-400/20'
                               : 'text-slate-600 hover:bg-[#F5F3FF] hover:text-[#6D28D9]'
                           )}
                         >
                           <Icon
                             className={cn(
-                              'w-4 h-4 shrink-0 transition-transform group-hover:scale-105',
+                              'w-4 h-4 shrink-0 transition-transform group-hover:scale-110 duration-150',
                               active ? 'text-white' : 'text-slate-500 group-hover:text-[#6D28D9]'
                             )}
                           />
@@ -208,12 +213,12 @@ export function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile
                           {!collapsed && item.badge && (
                             <span
                               className={cn(
-                                'text-[10px] font-semibold px-1.5 py-0.5 rounded-full',
+                                'text-[10px] font-semibold px-2 py-0.5 rounded-full',
                                 active
                                   ? 'bg-white/20 text-white'
                                   : item.badge === 'Alert'
                                   ? 'bg-rose-100 text-rose-700'
-                                  : 'bg-slate-100 text-slate-600'
+                                  : 'bg-purple-100 text-[#6D28D9]'
                               )}
                             >
                               {item.badge}
@@ -230,11 +235,11 @@ export function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile
         </div>
 
         {/* Sidebar Footer with Configurator & Landing CTA */}
-        <div className="p-3 border-t border-slate-100 bg-slate-50/60 space-y-1.5">
+        <div className="p-3 border-t border-slate-100 bg-slate-50/70 space-y-1.5">
           <Link
             href="/configure"
             className={cn(
-              'flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-semibold text-[#6D28D9] bg-[#F5F3FF] border border-[#DDD6FE] hover:bg-[#EDE9FE] transition-colors',
+              'flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-[#6D28D9] bg-white border border-[#DDD6FE] hover:bg-[#F5F3FF] shadow-2xs transition-all active:scale-[0.98]',
               collapsed && 'justify-center px-2'
             )}
             title="Configure Modules"
@@ -246,7 +251,7 @@ export function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile
           <Link
             href="/request-quote"
             className={cn(
-              'flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-semibold text-white bg-[#6D28D9] hover:bg-[#5B21B6] transition-colors',
+              'flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-[#6D28D9] to-[#8B5CF6] hover:from-[#5B21B6] hover:to-[#7C3AED] shadow-xs shadow-purple-600/20 transition-all active:scale-[0.98]',
               collapsed && 'justify-center px-2'
             )}
             title="Request a Quote"

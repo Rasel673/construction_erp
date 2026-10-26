@@ -86,13 +86,44 @@ export default function LandingPage() {
       </header>
 
       {/* 2. Hero Section with Somikoron-inspired floating badges and clean purple depth */}
-      <section className="relative overflow-hidden pt-12 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F5F3FF]/70 via-[#F8FAFC] to-[#F8FAFC]">
+      <section className="relative overflow-hidden pt-14 pb-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#F5F3FF]/70 via-[#F8FAFC] to-[#F8FAFC]">
         {/* Soft Background Blur Orbs */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-tr from-purple-200/50 to-indigo-100/40 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[450px] bg-gradient-to-tr from-purple-200/50 via-indigo-100/40 to-pink-100/30 rounded-full blur-3xl pointer-events-none" />
+
+        {/* Floating Interactive Micro-Cards (Desktop) */}
+        <div className="hidden xl:block absolute left-8 top-32 z-20 animate-float pointer-events-none">
+          <div className="bg-white/90 backdrop-blur-md p-3.5 rounded-2xl border border-purple-100 shadow-xl shadow-purple-900/5 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-purple-50 text-[#6D28D9] flex items-center justify-center font-bold">
+              <Boxes className="w-5 h-5 text-[#6D28D9]" />
+            </div>
+            <div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-[11px] font-bold text-slate-800">Seven Rings Cement</span>
+              </div>
+              <p className="text-[10px] text-slate-500">Banani Central Yard: 1,850 Bags</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="hidden xl:block absolute right-8 top-28 z-20 animate-float [animation-delay:2s] pointer-events-none">
+          <div className="bg-white/90 backdrop-blur-md p-3.5 rounded-2xl border border-purple-100 shadow-xl shadow-purple-900/5 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+              <UserCheck className="w-5 h-5 text-emerald-600" />
+            </div>
+            <div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span className="text-[11px] font-bold text-slate-800">Muster Roll Verified</span>
+              </div>
+              <p className="text-[10px] text-slate-500">310 Shramik & Rajmistri Today</p>
+            </div>
+          </div>
+        </div>
 
         <div className="max-w-5xl mx-auto text-center space-y-6 relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-purple-200 shadow-xs text-xs font-semibold text-[#6D28D9]">
-            <Sparkles className="w-3.5 h-3.5 text-[#6D28D9]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-purple-200/90 shadow-xs text-xs font-semibold text-[#6D28D9]">
+            <Sparkles className="w-3.5 h-3.5 text-[#6D28D9] animate-pulse" />
             <span>Modern Construction ERP for Bangladeshi Contractors & Builders</span>
           </div>
 
@@ -107,32 +138,32 @@ export default function LandingPage() {
             Eliminate project delays, material pilferage, and chaotic site spreadsheets. Unify BOQ estimations, cement & rebar stocks, daily labor wages, RA billing, and financial health into a state-of-the-art enterprise system.
           </p>
 
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5">
             <Link href="/demo">
-              <Button variant="primary" size="lg" className="text-base px-6 py-3 font-bold shadow-lg shadow-purple-600/25 w-full sm:w-auto">
+              <Button variant="primary" size="lg" className="text-base px-7 py-3.5 font-bold shadow-lg shadow-purple-600/30 hover:shadow-purple-600/40 w-full sm:w-auto">
                 <HardHat className="w-5 h-5" />
                 <span>Explore Interactive Demo</span>
               </Button>
             </Link>
 
             <Link href="/demo/modules">
-              <Button variant="secondary" size="lg" className="text-base px-6 py-3 font-semibold border border-purple-200 w-full sm:w-auto">
+              <Button variant="secondary" size="lg" className="text-base px-7 py-3.5 font-semibold border border-purple-200 w-full sm:w-auto hover:bg-purple-100/70">
                 <Layers className="w-5 h-5 text-[#6D28D9]" />
                 <span>Explore All 19 Modules</span>
               </Button>
             </Link>
           </div>
 
-          <div className="flex items-center justify-center gap-6 pt-3 text-xs text-slate-500 font-medium">
-            <span className="flex items-center gap-1.5">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-4 text-xs text-slate-500 font-medium">
+            <span className="flex items-center gap-1.5 bg-white/70 backdrop-blur-xs px-3 py-1 rounded-full border border-slate-200/60 shadow-2xs">
               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               <span>No Login Required for Evaluation</span>
             </span>
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-1.5 bg-white/70 backdrop-blur-xs px-3 py-1 rounded-full border border-slate-200/60 shadow-2xs">
               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               <span>BDT Lakh & Crore Standard</span>
             </span>
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-1.5 bg-white/70 backdrop-blur-xs px-3 py-1 rounded-full border border-slate-200/60 shadow-2xs">
               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
               <span>Live Interactive Mock Data</span>
             </span>
